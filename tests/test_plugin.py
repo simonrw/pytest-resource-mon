@@ -3,7 +3,7 @@ import urllib.error
 
 import pytest
 
-from pytest_tinybird_metrics.plugin import (
+from pytest_resource_mon.plugin import (
     TinybirdMetricsPlugin,
     _FileWriter,
     _TinybirdWriter,
@@ -87,7 +87,7 @@ class TestTinybirdWriter:
             calls.append(req)
             raise urllib.error.URLError("fail")
 
-        monkeypatch.setattr("pytest_tinybird_metrics.plugin.urllib.request.urlopen", mock_urlopen)
+        monkeypatch.setattr("pytest_resource_mon.plugin.urllib.request.urlopen", mock_urlopen)
         writer = _TinybirdWriter("tok", "https://api.tinybird.co", "ds")
         writer.send([{"x": 1}])
         assert len(calls) == 2  # initial + 1 retry
@@ -110,7 +110,7 @@ class TestTinybirdWriter:
             captured["headers"] = dict(req.headers)
             return FakeResponse()
 
-        monkeypatch.setattr("pytest_tinybird_metrics.plugin.urllib.request.urlopen", mock_urlopen)
+        monkeypatch.setattr("pytest_resource_mon.plugin.urllib.request.urlopen", mock_urlopen)
         writer = _TinybirdWriter("tok123", "https://api.tinybird.co", "ci_test_metrics")
         writer.send([{"a": 1}, {"b": 2}])
         lines = captured["body"].decode().strip().split("\n")

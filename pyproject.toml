@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pytest-tinybird-metrics"
+name = "pytest-resource-mon"
 version = "0.1.0"
 description = "Pytest plugin that snapshots system resources per test and ships metrics to Tinybird"
 requires-python = ">=3.9"
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.entry-points.pytest11]
-tinybird_metrics = "pytest_tinybird_metrics.plugin"
+resource_mon = "pytest_resource_mon.plugin"
 
 [dependency-groups]
 dev = [
