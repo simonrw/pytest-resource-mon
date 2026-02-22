@@ -1,4 +1,4 @@
 [book]
 title = "pytest-resource-mon"
-authors = ["LocalStack"]
+authors = ["Simon Walker <s.r.walker101@gmail.com>"]
 src = "src"
