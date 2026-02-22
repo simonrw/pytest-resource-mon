@@ -1,2 +1,5 @@
 [tools]
 mdbook = "latest"
+
+[env]
+TB_CLI_TELEMETRY_OPTOUT = "1"

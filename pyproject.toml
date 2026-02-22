@@ -19,6 +19,7 @@ resource_mon = "pytest_resource_mon.plugin"
 dev = [
     "pytest",
     "psutil",
+    "tinybird>=2.0.0",
 ]
 
 [tool.pytest.ini_options]
