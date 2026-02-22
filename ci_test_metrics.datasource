@@ -1,3 +1,5 @@
+TOKEN ci-token APPEND
+
 DESCRIPTION >
     Per-test system resource snapshots from CI pytest runs
 
