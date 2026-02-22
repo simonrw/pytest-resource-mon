@@ -1,0 +1,34 @@
+DESCRIPTION >
+    Per-test system resource snapshots from CI pytest runs
+
+SCHEMA >
+    `event_type` String `json:$.event_type`,
+    `test_nodeid` String `json:$.test_nodeid`,
+    `timestamp` DateTime64(3) `json:$.timestamp`,
+    `batch_num` Int32 `json:$.batch_num`,
+    `duration_s` Float64 `json:$.duration_s`,
+    `cpu_before` Float64 `json:$.cpu_before`,
+    `cpu_after` Float64 `json:$.cpu_after`,
+    `cpu_count` Int32 `json:$.cpu_count`,
+    `mem_total_bytes` Int64 `json:$.mem_total_bytes`,
+    `mem_available_before` Int64 `json:$.mem_available_before`,
+    `mem_available_after` Int64 `json:$.mem_available_after`,
+    `mem_percent_before` Float64 `json:$.mem_percent_before`,
+    `mem_percent_after` Float64 `json:$.mem_percent_after`,
+    `disk_total_bytes` Int64 `json:$.disk_total_bytes`,
+    `disk_free_before` Int64 `json:$.disk_free_before`,
+    `disk_free_after` Int64 `json:$.disk_free_after`,
+    `disk_percent_before` Float64 `json:$.disk_percent_before`,
+    `disk_percent_after` Float64 `json:$.disk_percent_after`,
+    `exit_status` Int32 `json:$.exit_status`,
+    `gh_run_id` String `json:$.gh_run_id`,
+    `gh_sha` String `json:$.gh_sha`,
+    `gh_ref_name` String `json:$.gh_ref_name`,
+    `gh_workflow` String `json:$.gh_workflow`,
+    `gh_job` String `json:$.gh_job`,
+    `gh_actor` String `json:$.gh_actor`,
+    `gh_repository` String `json:$.gh_repository`,
+    `gh_run_attempt` String `json:$.gh_run_attempt`
+
+ENGINE "MergeTree"
+ENGINE_SORTING_KEY "timestamp, test_nodeid"
