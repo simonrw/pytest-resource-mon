@@ -15,5 +15,11 @@ dependencies = [
 [project.entry-points.pytest11]
 tinybird_metrics = "pytest_tinybird_metrics.plugin"
 
+[dependency-groups]
+dev = [
+    "pytest",
+    "psutil",
+]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
