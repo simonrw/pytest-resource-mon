@@ -162,8 +162,8 @@ class TinybirdMetricsPlugin:
     def _send_rows(self, rows):
         try:
             self._writer.send(rows)
-        except Exception:
-            logger.warning("Failed to send %d rows", len(rows))
+        except Exception as e:
+            logger.warning("Failed to send %d rows", len(rows), exc_info=True)
 
 
 def pytest_addoption(parser):

@@ -1,4 +1,5 @@
 import json
+import os
 import urllib.error
 
 import pytest
@@ -138,6 +139,21 @@ class TestFileWriter:
 
 
 # --- Integration tests (pytester) ---
+
+
+requires_tinybird = pytest.mark.skipif(
+    not os.environ.get("PYTEST_RESOURCE_MON_ENABLE_TEST_TINYBIRD"),
+    reason="PYTEST_RESOURCE_MON_ENABLE_TEST_TINYBIRD not set",
+)
+
+
+class TestTinybirdLive:
+    """Tests that send real data to Tinybird. Requires a valid TINYBIRD_WRITE_TOKEN."""
+
+    @requires_tinybird
+    def test_simple_pass(self):
+        """A trivial test whose resource metrics are captured and sent to Tinybird."""
+        assert 1 + 1 == 2
 
 
 class TestPluginIntegration:

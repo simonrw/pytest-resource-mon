@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
       - run: uv venv --seed
-      - run: uv run pytest
+      - run: uv run pytest -v -o log_cli=true
         env:
           TINYBIRD_WRITE_TOKEN: ${{ secrets.TINYBIRD_WRITE_TOKEN }}
+          PYTEST_RESOURCE_MON_ENABLE_TEST_TINYBIRD: "1"
