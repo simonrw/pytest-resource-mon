@@ -62,9 +62,9 @@ class _TinybirdWriter:
                 return
             except Exception:
                 if attempt == 0:
-                    logger.warning("Tinybird send failed, retrying once")
+                    logger.warning("Tinybird send failed, retrying once", exc_info=True)
                 else:
-                    logger.warning("Tinybird send failed after retry, dropping %d rows", len(rows))
+                    logger.warning("Tinybird send failed after retry, dropping %d rows", len(rows), exc_info=True)
 
 
 class _FileWriter:

@@ -17,3 +17,4 @@ jobs:
         env:
           TINYBIRD_WRITE_TOKEN: ${{ secrets.TINYBIRD_WRITE_TOKEN }}
           PYTEST_RESOURCE_MON_ENABLE_TEST_TINYBIRD: "1"
+          TINYBIRD_API_URL: https://api.europe-west2.gcp.tinybird.co
